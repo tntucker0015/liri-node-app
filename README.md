@@ -14,8 +14,11 @@ SetUP:
   3. To retrieve the data that will power this app, you'll need to send requests to the Twitter, Spotify and OMDB APIs. You'll find       these Node packages crucial for your assignment.
 
         Twitter -- npm i twitter
+        
         Node-Spotify-API -- npm i node-spotify-api
+        
         Request -- npm i request
+        
         DotEnv -- npm i dotenv
         
   4. Next, create a file named .env, add the following to it, replacing the values with your API keys (no quotes) once you have them:
@@ -49,18 +52,31 @@ SetUP:
   # Run The Application
   From the Terminal in the root ddirectory
     Enter the following:
+    
         To get a list of 10 of my latest tweets from @uncpappabear enter:
+        
           'node liri.js my-tweets'
+          
         To search for tweets using a specific word enter:
+        
           'node liri.js search-tweets <your search word>'
+          
                   example: node liri.js search-tweets durham
+                  
         To search for specific song data including a url for Spotify enter:
+        
           'node liri.js spotify-this-song <your-song>'
+          
                   example: node liri.js spotify-this-song amazing-grace
+                  
                         make sure to include '-' for any spaces of song title
+                        
         To search for movie info of your fav movie enter:
+        
           'node liri.js movie-this <movie-title>'
+          
                   exapmle:  node liri.js movie-this the-matrix
+                  
                         make sure to include '-' for any spaces of movie title
   
         
