@@ -22,13 +22,17 @@ SetUP:
         # Spotify API keys
 
         SPOTIFY_ID=your-spotify-id
+        
         SPOTIFY_SECRET=your-spotify-secret
 
         # Twitter API keys
 
         TWITTER_CONSUMER_KEY=your-twitter-consumer-key
+        
         TWITTER_CONSUMER_SECRET=your-twitter-consumer-secret
+        
         TWITTER_ACCESS_TOKEN_KEY=your-access-token-key
+        
         TWITTER_ACCESS_TOKEN_SECRET=your-twitter-access-token-secret
  
         --This file will be used by the dotenv package to set what are known as environment variables to the global process.env object           in node. These are values that are meant to be specific to the computer that node is running on, and since we are gitignoring           this file, they won't be pushed to github — keeping our API key information private.
