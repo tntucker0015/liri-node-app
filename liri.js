@@ -1,9 +1,12 @@
 require("dotenv").config();
 
-
+//  pulls user input and stores it for picking which switch  to run.
 const input = process.argv[2];
+//  used for title or search value
 const userValue = process.argv[3];
+// pulls keys from .env file
 const key = require('./keys.js');
+
 const twitKeys = key.twitter;
 const spotKeys = key.spotify
 const omdb = key.omdb.id;
@@ -19,8 +22,7 @@ const params = {
 };
 switch (input) {
   case 'search-tweets':
-    // // Twitter search
-    // // +++++++++++++++++++++++++++++++++++++++++++++++
+    // // Twitter search - takes user input and produces 10 tweets-reults from twitter
     client.get('search/tweets', params, searchTweets);
 
     function searchTweets(error, data, response) {
@@ -32,9 +34,9 @@ switch (input) {
     };
     break;
   case 'my-tweets':
-    // My Tweets
+    // My Tweets -takes the user input a reproduces 10 tweets from @uncpappabear
     client.get('statuses/user_timeline', params, userTweets);
-
+// creates a loop to display 10 results of my tweets
     function userTweets(error, data, response) {
       for (var i = 0; i < data.length; i++) {
         console.log("========================================");
@@ -46,7 +48,7 @@ switch (input) {
     break;
   case 'spotify-this-song':
     // Node-spotify-api
-    // +++++++++++++++++++++++++++++++++++++++++++++++
+    // takes user input and searches spotify then displays reluts for user song
     var Spotify = require('node-spotify-api');
     var spotify = new Spotify(spotKeys);
     spotify.search({
@@ -69,8 +71,8 @@ switch (input) {
     });
     break;
   case 'movie-this':
-    // // // omdb api
-    // // //+++++++++++++++++++++++++++++++++++++++++++++++
+     // omdb api
+    // takes user input and pulls movie info from OMDB
     var request = require("request");
     var movieName = userValue;
     request("http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=" + omdb, function (error, response, body) {
@@ -87,6 +89,7 @@ switch (input) {
     });
     break;
   case 'do-what-it-says':
+  // if user leaves off song title or movie title it should play what is in random.txt
     if (userValue == '') {
       const Spotify = require('node-spotify-api');
       const spotify = new Spotify(spotKeys);
